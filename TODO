@@ -1,0 +1,9 @@
+configuration for filenames, auth
+archiving
+user-agent
+make target "deploy" / download
+github:
+	respect github settings
+	OAuth
+	get user/repo data
+sourceforge
