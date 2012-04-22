@@ -18,7 +18,7 @@ def main():
 	for f in filter(lambda fn: fn.endswith('.json'), files):
 		assert f.startswith('events-')
 		date = util.extractDate(f)
-		if date < today or True:
+		if date < today:
 			byDate[date.isoformat()].append(f)
 	if byDate:
 		util.ensureDir(backupDir)
