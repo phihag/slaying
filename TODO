@@ -1,4 +1,6 @@
 archiving
+	make one event stream out of many files (json as well as archives)
+simple stats (how many events have we gathered etc.)
 make target "deploy" / download
 github:
 	get user/repo data

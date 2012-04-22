@@ -1,6 +1,8 @@
 
+import datetime
 import json
 import os.path
+import re
 import sys
 
 _rootDir = os.path.dirname(os.path.abspath(__file__))
@@ -12,7 +14,7 @@ with open(os.path.join(_rootDir, 'settings.json')) as jsonf:
 	settings = json.load(jsonf)
 
 USER_AGENT = 'slaying productivity project @ HHUD (hagemeister@cs.uni-duesseldorf.de)'
-DATADIR = os.path.join(_rootDir, 'data')
+DATADIR = os.path.join('.', 'data')
 
 def github_request(path,handle_request, io_loop=None):
 	url = 'https://api.github.com' + path
@@ -27,3 +29,8 @@ def github_request(path,handle_request, io_loop=None):
 def ensureDir(d):
 	if not os.path.exists(d):
 		os.makedirs(d)
+
+def extractDate(filename):
+	m = re.match(r'[a-z]+-(\d{4})-(\d{2})-(\d{2})T[0-9:.]+\.[a-z0-9]+', filename)
+	assert m
+	return datetime.date(*map(int, m.groups()))
