@@ -1,7 +1,5 @@
 archiving
 make target "deploy" / download
 github:
-	respect github settings
-	OAuth
 	get user/repo data
-sourceforge
+kernel
