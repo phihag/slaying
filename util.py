@@ -2,10 +2,13 @@
 import datetime
 import json
 import os.path
+import platform
 import re
 import sys
 
 _rootDir = os.path.dirname(os.path.abspath(__file__))
+platformStr = '%s-%s-%s.%s' % (platform.uname()[0].lower(), platform.machine(), sys.version_info.major, sys.version_info.major)
+sys.path.append(os.path.join(_rootDir, 'libs', 'tornado', 'build', 'lib-' + platformStr))
 sys.path.append(os.path.join(_rootDir, 'libs', 'tornado', 'build', 'lib'))
 
 import tornado.httpclient

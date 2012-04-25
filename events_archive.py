@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import contextlib
 import collections
 import datetime
 import os
@@ -25,7 +26,7 @@ def main():
 		for date,files in byDate.items():
 			tarfn = os.path.join(d, 'events-' + date + '.tar.bz2')
 			assert not os.path.exists(tarfn)
-			with tarfile.open(tarfn, 'w:bz2') as tf:
+			with contextlib.closing(tarfile.open(tarfn, 'w:bz2')) as tf:
 				for f in files:
 					fn = os.path.join(d, f)
 					tf.add(fn, f, recursive=False)
