@@ -7,8 +7,9 @@ import re
 import sys
 
 _rootDir = os.path.dirname(os.path.abspath(__file__))
-platformStr = '%s-%s-%s.%s' % (platform.uname()[0].lower(), platform.machine(), sys.version_info.major, sys.version_info.major)
-sys.path.append(os.path.join(_rootDir, 'libs', 'tornado', 'build', 'lib-' + platformStr))
+pyvTuple = platform.python_version_tuple()
+platformStr = '%s-%s-%s.%s' % (platform.uname()[0].lower(), platform.machine(), pyvTuple [0], pyvTuple [1])
+sys.path.append(os.path.join(_rootDir, 'libs', 'tornado', 'build', 'lib.' + platformStr))
 sys.path.append(os.path.join(_rootDir, 'libs', 'tornado', 'build', 'lib'))
 
 import tornado.httpclient

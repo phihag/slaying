@@ -8,7 +8,7 @@ deploytar:
 
 download-libs:
 	mkdir -p libs
-	./.getgit.sh git://github.com/facebook/tornado.git libs/tornado
+	./.getgit.sh git://github.com/phihag/tornado.git libs/tornado
 	cd libs/tornado && python3 setup.py build
 
 clean:
